@@ -1,0 +1,91 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.RELEASE'
+        vaadinFlowPluginVersion = "1.0.0-M1"
+    }
+
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("com.devsoap:gradle-vaadin-flow-plugin:${vaadinFlowPluginVersion}")
+    }
+}
+
+subprojects {
+    apply plugin: 'groovy'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    group = 'com.niafikra'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    ext {
+        ext {
+            groovyVersion = '2.4.14'
+        }
+    }
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+        compile('org.springframework.boot:spring-boot-starter-aop')
+        compile('org.springframework.boot:spring-boot-starter-data-jpa')
+        compile 'org.hibernate:hibernate-java8:5.2.16.Final'
+        compile('org.springframework.boot:spring-boot-starter-groovy-templates')
+        compile('org.springframework.boot:spring-boot-starter-mail')
+        compile('org.springframework.boot:spring-boot-starter-quartz')
+        //compile('org.springframework.boot:spring-boot-starter-security')
+        compile('org.springframework.boot:spring-boot-starter-validation')
+
+        compile 'com.querydsl:querydsl-jpa:4.2.1'
+        compile('org.springframework.session:spring-session-core')
+        compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+
+        runtime('org.springframework.boot:spring-boot-devtools')
+        runtime('mysql:mysql-connector-java')
+        compileOnly('org.projectlombok:lombok')
+
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+        testCompile('org.springframework.security:spring-security-test')
+        testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+        testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+        testCompile group: 'cglib', name: 'cglib-nodep', version: '3.2.5'
+    }
+
+}
+
+configure(subprojects.findAll { it.name.toLowerCase().contains('vaadin') }) {
+    ext {
+        ext {
+            vaadinVersion = '10.0.0.beta4'
+            springFlowVersion = '1.0.0.beta4'
+        }
+    }
+
+    apply plugin: "com.devsoap.vaadin-flow"
+
+    repositories {
+        jcenter()
+        maven { url 'https://maven.vaadin.com/vaadin-addons' }
+        maven { url 'https://maven.vaadin.com/vaadin-prereleases' }
+        maven { url 'https://dl.bintray.com/webjars/maven' }
+    }
+
+    dependencies {
+        compile "com.vaadin:vaadin-core:${vaadinVersion}"
+        compile "com.vaadin:flow-spring-boot-starter:${springFlowVersion}"
+    }
+}
+

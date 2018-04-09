@@ -1,0 +1,6 @@
+rootProject.name = 'inaya'
+include 'engine:core',
+        'engine:vaadinUI',
+        'runnerConsole',
+        'runnerVaadin'
+

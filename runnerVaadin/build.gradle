@@ -1,0 +1,17 @@
+ext {
+    mainClassName = "com.niafikra.inaya.InayaServletInitializer"
+}
+
+jar {
+    baseName = 'app'
+    version = null // no version in the filename
+    manifest {
+        attributes 'Main-Class': mainClassName // Allow to run with `java -jar app.jar`
+    }
+}
+
+bootRun.systemProperties = System.properties // pass sysprops down to bootRun, so we can add them in configs in intellij
+
+dependencies {
+    compile project(':engine:vaadinUI')
+}
