@@ -6,6 +6,8 @@ spring:
         username: root
         password: "freedom"
         pooled: true
+    jpa:
+        generate-dll: true
 
 name: test-YAML
 envinronment: test
@@ -14,11 +16,11 @@ servers:
     - www.cba.com
 
 hibernate:
-    hbm2ddl:
-        auto: update
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
----spring:
+---
+
+spring:
     profiles: test
     datasource:
         driverClassName: com.mysql.jdbc.Driver
@@ -26,6 +28,8 @@ hibernate:
         username: root
         password: "freedom"
         pooled: true
+    jpa:
+        generate-dll: true
 
 name: test-YAML
 envinronment: test
@@ -34,8 +38,6 @@ servers:
     - www.cba.com
 
 hibernate:
-    hbm2ddl:
-        auto: update
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 ---
@@ -48,6 +50,8 @@ spring:
          username: root
          password: "freedom"
          pooled: true
+     jpa:
+         generate-dll: true
 
 name: prod-YAML
 envinronment: prod
@@ -56,7 +60,5 @@ servers:
     - www.cba.com
 
 hibernate:
-    hbm2ddl:
-        auto: update
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 

@@ -2,6 +2,8 @@ ext {
     mainClassName = "com.niafikra.inaya.InayaServletInitializer"
 }
 
+
+
 jar {
     baseName = 'app'
     version = null // no version in the filename

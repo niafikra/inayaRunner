@@ -35,6 +35,7 @@ subprojects {
     ext {
         ext {
             groovyVersion = '2.4.14'
+            queryDslVersion = '4.2.1'
         }
     }
 
@@ -46,10 +47,13 @@ subprojects {
         compile('org.springframework.boot:spring-boot-starter-groovy-templates')
         compile('org.springframework.boot:spring-boot-starter-mail')
         compile('org.springframework.boot:spring-boot-starter-quartz')
-        //compile('org.springframework.boot:spring-boot-starter-security')
+        compile('org.springframework.boot:spring-boot-starter-security')
         compile('org.springframework.boot:spring-boot-starter-validation')
 
-        compile 'com.querydsl:querydsl-jpa:4.2.1'
+        compile "com.querydsl:querydsl-jpa:${queryDslVersion}"
+        compile "com.querydsl:querydsl-apt:${queryDslVersion}"
+        compile "com.querydsl:querydsl-core:${queryDslVersion}"
+
         compile('org.springframework.session:spring-session-core')
         compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
 
