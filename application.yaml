@@ -1,13 +1,21 @@
 spring:
+  profiles:
+    active: "dev"
+  jpa:
+    generate-dll: true
+---
+spring:
     profiles: dev
     datasource:
         driverClassName: com.mysql.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/inaya2
         username: root
-        password: "freedom"
+        password: "grace1987"
         pooled: true
     jpa:
-        generate-dll: true
+      generate-dll: true
+      hibernate:
+        ddl-auto: update
 
 name: test-YAML
 envinronment: test
@@ -28,8 +36,7 @@ spring:
         username: root
         password: "freedom"
         pooled: true
-    jpa:
-        generate-dll: true
+    jpa:generate-dll: true
 
 name: test-YAML
 envinronment: test

@@ -9,7 +9,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * The entry point of the Spring Boot application.
  */
 @SpringBootApplication(scanBasePackages = "com.niafikra.inaya")
-public class InayaServletInitializer extends SpringBootServletInitializer {
+public class InayaServletInitializer extends SpringBootServletInitializer{
 
     public static void main(String[] args) {
         SpringApplication.run(InayaServletInitializer.class, args);

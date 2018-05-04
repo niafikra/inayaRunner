@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.0.RELEASE'
-        vaadinFlowPluginVersion = "1.0.0-M1"
+        springBootVersion = '2.0.1.RELEASE'
+        vaadinFlowPluginVersion = "1.0.0.M1"
     }
 
     repositories {
@@ -73,8 +73,8 @@ subprojects {
 configure(subprojects.findAll { it.name.toLowerCase().contains('vaadin') }) {
     ext {
         ext {
-            vaadinVersion = '10.0.0.beta4'
-            springFlowVersion = '1.0.0.beta4'
+            vaadinVersion = '10.0.0.beta7'
+            springFlowVersion = '1.0.0.beta7'
         }
     }
 
@@ -90,6 +90,7 @@ configure(subprojects.findAll { it.name.toLowerCase().contains('vaadin') }) {
     dependencies {
         compile "com.vaadin:vaadin-core:${vaadinVersion}"
         compile "com.vaadin:flow-spring-boot-starter:${springFlowVersion}"
+//        compile "com.vaadin:flow-spring-addon"
     }
 }
 
