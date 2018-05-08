@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.0.1.RELEASE'
-        vaadinFlowPluginVersion = "1.0.0.M1"
+        vaadinFlowPluginVersion = "1.0.0.M2"
     }
 
     repositories {
@@ -73,7 +73,7 @@ subprojects {
 configure(subprojects.findAll { it.name.toLowerCase().contains('vaadin') }) {
     ext {
         ext {
-            vaadinVersion = '10.0.0.beta7'
+            vaadinVersion = '10.0.0.beta9'
             springFlowVersion = '1.0.0.beta7'
         }
     }

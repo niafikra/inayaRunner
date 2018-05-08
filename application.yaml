@@ -10,7 +10,7 @@ spring:
         driverClassName: com.mysql.jdbc.Driver
         url: jdbc:mysql://127.0.0.1:3306/inaya2
         username: root
-        password: "grace1987"
+        password: "freedom"
         pooled: true
     jpa:
       generate-dll: true
